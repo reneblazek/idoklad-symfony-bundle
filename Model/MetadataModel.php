@@ -1,0 +1,53 @@
+<?php
+
+namespace Mufin\IDokladBundle\Model;
+
+use DateTimeInterface;
+use JMS\Serializer\Annotation as Serializer;
+
+class MetadataModel
+{
+    /**
+     * @Serializer\SerializedName("DateCreated")
+     * @Serializer\Type("DateTimeImmutable<'Y-m-d\TH:i:s.v'>")
+     */
+    private DateTimeInterface $dateCreated;
+
+    /**
+     * @Serializer\SerializedName("DateLastChange")
+     * @Serializer\Type("DateTimeImmutable<'Y-m-d\TH:i:s.v'>")
+     */
+    private DateTimeInterface $dateLastChanged;
+
+    /**
+     * @Serializer\SerializedName("UserCreatedId")
+     * @Serializer\Type("int")
+     */
+    private ?int $userCreatedId = null;
+
+    /**
+     * @Serializer\SerializedName("UserLastChangeId")
+     * @Serializer\Type("int")
+     */
+    private ?int $userLastChangedId = null;
+
+    public function getDateCreated(): DateTimeInterface
+    {
+        return $this->dateCreated;
+    }
+
+    public function getDateLastChanged(): DateTimeInterface
+    {
+        return $this->dateLastChanged;
+    }
+
+    public function getUserCreatedId(): int
+    {
+        return $this->userCreatedId;
+    }
+
+    public function getUserLastChangedId(): int
+    {
+        return $this->userLastChangedId;
+    }
+}

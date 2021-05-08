@@ -1,0 +1,32 @@
+parameters:
+    idoklad:
+        clientId: '%env(IDOKLAD_CLIENT_ID)%'
+        clientSecret: '%env(IDOKLAD_CLIENT_SECRET)%'
+        test: '%env(TEST_MODE)%'
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Mufin\IDokladBundle\Service\IDokladClient:
+        arguments:
+            $params: '%idoklad%'
+
+    Mufin\IDokladBundle\Exception\:
+        resource: '../../Exception/*'
+
+    Mufin\IDokladBundle\Helper\:
+        resource: '../../Helper/*'
+
+    Mufin\IDokladBundle\Serializer\:
+        resource: '../../Serializer/*'
+
+    Mufin\IDokladBundle\Model\:
+        resource: '../../Model/*'
+
+    Mufin\IDokladBundle\Factory\:
+        resource: '../../Factory/*'
+
+    Mufin\IDokladBundle\Service\IDokladConnector:
+
